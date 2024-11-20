@@ -47,20 +47,10 @@ int scelta_menu() {
     return scelta;
 }
 
-/* Funzione principale */
-int main() {
-    int scelta = 0;
-    
-    benvenuti();
-    regole_menu();
-    scelta = scelta_menu();
-    if (scelta == 0) {
-        crediti();
-    } else if (scelta == 1) {
-        cout << "Sei nella modalita' unaria di base" << endl;
-        cout << "Scegli tra: " << endl;
-        cout << "Radice quadrata [digitare 0]"<< endl;
-        /*
+/* Scelte nella modalità unaria di base */
+void scelte_mod_unaria () {
+        cout << "Scegli tra: " << endl;	
+		/*										
             radice quadrata [LEONARDO]
             quadrato
             cubo
@@ -79,9 +69,66 @@ int main() {
             successione: se do n, stampa: 1 2 3 4 5 ... n-1 n [MATTIA]
             tabellina: se do n, trovo la tabellina di n [KOL]
          */
-    }
+        cout << "Radice quadrata [digitare 0]"<< endl;
+        cout << "Quadrato [digitare 1]" << endl;
+        cout << "Cubo [digitare 2]" << endl;
+        cout << "Fattoriale [digitare 3]" << endl;
+        cout << "Logaritmo naturale [digitare 4]" << endl;
+        cout << "Negazione [digitare 5]" << endl;
+        cout << "Incremento [digitare 6]" << endl;
+        cout << "Decremento [digitare 7]" << endl;
+        cout << "Doppio [digitare 8]" << endl;
+        cout << "Valore assoluto [digitare 9]" << endl;
+        cout << "Pari [digitare 10]" << endl;
+        cout << "Positività [digitare 11]" << endl;
+        cout << "Uguale a 0 [digitare 12]" << endl;
+        cout << "Potenza per se stesso [digitare 13]" << endl;
+        cout << "10 alla n [digitare 14]" << endl;
+        cout << "Successione [digitare 15]" << endl;
+        cout << "Tabellina [digitare 16]" << endl;
+}
+
+/* Funzione principale */
+int main() {
+    int scelta = 0;
     
-    
+    benvenuti();
+    regole_menu();
+    scelta = scelta_menu();
+    if (scelta == 0) {
+        crediti();
+    } else if (scelta == 1) {
+        cout << "Sei nella modalita' unaria di base" << endl;
+        scelte_mod_unaria();	
+	}
+		
     return 0;
 }
 
+/* Funzione radice quadrata */
+int radice_quadrata (int n1) {
+	if (n1 < 0) {
+		cout << "Errore: il numero e' negativo, impossibile calcolare la radice quadrata." << endl;
+	} else {
+		return sqrt (n1);
+	}
+}
+
+/* Funzione fattoriale */
+int fattoriale (int n1) {
+	int i=1, res=n1;
+	if (n1 < 0) {
+		// Controlla se il numero inserito è minore di 0
+		cout << "Errore: il fattoriale non e' definito per i numeri negativi." << endl;
+	} else if (n1 == 0) {
+		// Controlla se il numero inserito è uguale a 0
+		cout << "Il fattoriale di 0 e' 1." << endl;
+	} else {
+		// Restituisce il fattoriale del numero inserito
+		while (i < n1) {
+			res= res * i;
+			i++;
+		}
+	return res;
+	}
+}
