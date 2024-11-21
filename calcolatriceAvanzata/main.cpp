@@ -88,6 +88,37 @@ void scelte_mod_unaria () {
         cout << "Tabellina [digitare 16]" << endl;
 }
 
+/* Funzione radice quadrata */
+int radice_quadrata (int n1) {
+    if (n1 < 0) {
+        cout << "Errore: il numero e' negativo, impossibile calcolare la radice quadrata." << endl;
+        return -1;
+    } else {
+        return sqrt (n1);
+    }
+}
+
+/* Funzione fattoriale */
+int fattoriale (int n1) {
+    int i=1, res=n1;
+    if (n1 < 0) {
+        // Controlla se il numero inserito è minore di 0
+        cout << "Errore: il fattoriale non e' definito per i numeri negativi." << endl;
+        return -1;
+    } else if (n1 == 0) {
+        // Controlla se il numero inserito è uguale a 0
+        // cout << "Il fattoriale di 0 e' 1." << endl;
+        return 1;
+    } else {
+        // Restituisce il fattoriale del numero inserito
+        while (i < n1) {
+            res= res * i;
+            i++;
+        }
+        return res;
+    }
+}
+
 /* Funzione principale */
 int main() {
     int scelta = 0;
@@ -103,32 +134,4 @@ int main() {
 	}
 		
     return 0;
-}
-
-/* Funzione radice quadrata */
-int radice_quadrata (int n1) {
-	if (n1 < 0) {
-		cout << "Errore: il numero e' negativo, impossibile calcolare la radice quadrata." << endl;
-	} else {
-		return sqrt (n1);
-	}
-}
-
-/* Funzione fattoriale */
-int fattoriale (int n1) {
-	int i=1, res=n1;
-	if (n1 < 0) {
-		// Controlla se il numero inserito è minore di 0
-		cout << "Errore: il fattoriale non e' definito per i numeri negativi." << endl;
-	} else if (n1 == 0) {
-		// Controlla se il numero inserito è uguale a 0
-		cout << "Il fattoriale di 0 e' 1." << endl;
-	} else {
-		// Restituisce il fattoriale del numero inserito
-		while (i < n1) {
-			res= res * i;
-			i++;
-		}
-	return res;
-	}
 }
